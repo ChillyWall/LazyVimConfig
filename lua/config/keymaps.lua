@@ -66,7 +66,6 @@ wk.add({
   { "<leader>msk", ":CMakeSelectKit<CR>", desc = "kit" },
   { "<leader>msc", ":CMakeSelectConfigurePreset<CR>", desc = "configure preset" },
 
-  -- windows
   { "<leader>wL", desc = "move current window to right" },
   { "<leader>wH", desc = "move current window to left" },
   { "<leader>wJ", desc = "move current window to buttom" },
@@ -80,15 +79,16 @@ wk.add({
 if vim.fn.has("win") then
   wk.add({
     { "<leader>tc", ":rightbelow term cmd<CR>", desc = "open cmd below", mode = "n" },
-    { "<leader>tp", ":rightbelow term powershell<CR>", desc = "open powershell below" },
-    { "<leader>tvc", ":vert rightbelow term bash<CR>", desc = "open cmd right" },
-    { "<leader>tvp", ":vert rightbelow term zsh<CR>", desc = "open powershell right" },
+    { "<leader>tp", ":rightbelow term pwsh<CR>", desc = "open powershell below" },
+    { "<leader>tvc", ":vert rightbelow term cmd<CR>", desc = "open cmd right" },
+    { "<leader>tvp", ":vert rightbelow term pwsh<CR>", desc = "open powershell right" },
   })
-elseif vim.fn.has("unix") then
+end
+
+if vim.fn.has("unix") then
   wk.add({
     { "<leader>tb", ":rightbelow term bash<CR>", desc = "open bash below", mode = "n" },
     { "<leader>tz", ":rightbelow term zsh<CR>", desc = "open zsh below" },
-    { "<leader>tv", group = "Vertical Terminals" },
     { "<leader>tvb", ":vert rightbelow term bash<CR>", desc = "open bash right" },
     { "<leader>tvz", ":vert rightbelow term zsh<CR>", desc = "open zsh right" },
   })
