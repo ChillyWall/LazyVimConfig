@@ -6,6 +6,7 @@ return {
       ["c"] = { "clang_format" },
       ["c++"] = { "clang_format" },
       ["cpp"] = { "clang_format" },
+      ["arduino"] = { "clang_format" },
     },
     formatters = {
       clang_format = {
