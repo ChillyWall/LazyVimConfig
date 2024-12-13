@@ -3,11 +3,11 @@
 -- Add any additional autocmds here
 
 local function augroup(name)
-    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cpp", "c", "c++", "python", "java", "markdown", "json" },
+  pattern = { "cpp", "c", "c++", "python", "java", "markdown", "json", "arduino" },
   group = augroup("format-tabs"),
   callback = function()
     vim.opt_local.tabstop = 4
