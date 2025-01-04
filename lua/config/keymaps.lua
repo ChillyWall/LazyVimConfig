@@ -49,12 +49,13 @@ wk.add({
 
   -- cmake
   { "<leader>m", group = "CMake" },
-  { "<leader>mg", ":CMakeGenerate<CR>", desc = "cmake generate" },
-  { "<leader>mb", ":CMakeBuild<CR>", desc = "cmake build" },
-  { "<leader>md", ":CMakeDebug<CR>", desc = "cmake debug" },
-  { "<leader>mr", ":CMakeRun<CR>", desc = "cmake run" },
-  { "<leader>mc", ":CMakeClean<CR>", desc = "cmake clean" },
-  { "<leader>mi", ":CMakeInstall<CR>", desc = "cmake install" },
+  { "<leader>mg", ":CMakeGenerate<CR>", desc = "generate" },
+  { "<leader>mb", ":CMakeBuild<CR>", desc = "build" },
+  { "<leader>md", ":CMakeDebug<CR>", desc = "debug" },
+  { "<leader>mr", ":CMakeRun<CR>", desc = "run" },
+  { "<leader>mt", ":CMakeRunTest<CR>", desc = "ctest" },
+  { "<leader>mc", ":CMakeClean<CR>", desc = "clean" },
+  { "<leader>mi", ":CMakeInstall<CR>", desc = "install" },
 
   { "<leader>ms", group = "Select" },
   { "<leader>msb", group = "Build" },
@@ -65,6 +66,7 @@ wk.add({
   { "<leader>msl", ":CMakeSelectLaunchTarget<CR>", desc = "launch target" },
   { "<leader>msk", ":CMakeSelectKit<CR>", desc = "kit" },
   { "<leader>msc", ":CMakeSelectConfigurePreset<CR>", desc = "configure preset" },
+  { "<leader>mst", ":CMakeSettings<CR>", desc = "settings" },
 
   { "<leader>wL", desc = "move current window to right" },
   { "<leader>wH", desc = "move current window to left" },

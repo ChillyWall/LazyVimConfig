@@ -10,6 +10,10 @@ g.maplocalleader = ";"
 opt.scrolloff = 10
 
 if g.neovide then
-    opt.guifont = "SauceCodePro NF:h13"
+  if vim.fn.has("win32") == 1 then
+    opt.guifont = "SauceCodePro Nerd Font:h10"
+  else
+    opt.guifont = "SauceCodePro NF:h12"
+  end
+  g.neovide_transparency = 0.85
 end
-
