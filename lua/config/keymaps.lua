@@ -29,46 +29,6 @@ if not vim.g.vscode then
     -- terminals
     { "<leader>tv", group = "Vertical Terminals" },
 
-    -- git
-    { "<leader>gb", group = "branch" },
-    { "<leader>gbm", ":G merge<SPACE>", desc = "merge" },
-    { "<leader>gbc", ":G checkout<SPACE>", desc = "checkout to branch" },
-
-    { "<leader>gr", group = "re-" },
-    { "<leader>grs", ":G reset<SPACE>", desc = "reset" },
-    { "<leader>grb", ":G rebase<SPACE>", desc = "rebase" },
-    { "<leader>grv", ":G revert<SPACE>", desc = "revert" },
-    { "<leader>grf", ":G reflog<CR>", desc = "reflog" },
-    { "<leader>grm", ":G remote<SPACE>", desc = "remote" },
-
-    { "<leader>ga", ":G add<SPACE>", desc = "add" },
-    { "<leader>gC", ":G commit -m<SPACE>", desc = "commit with message" },
-
-    { "<leader>gp", group = "pull/push" },
-    { "<leader>gpl", ":G pull<SPACE>", desc = "pull" },
-    { "<leader>gps", ":G push<SPACE>", desc = "push" },
-
-    -- cmake
-    { "<leader>m", group = "CMake" },
-    { "<leader>mg", ":CMakeGenerate<CR>", desc = "generate" },
-    { "<leader>mb", ":CMakeBuild<CR>", desc = "build" },
-    { "<leader>md", ":CMakeDebug<CR>", desc = "debug" },
-    { "<leader>mr", ":CMakeRun<CR>", desc = "run" },
-    { "<leader>mt", ":CMakeRunTest<CR>", desc = "ctest" },
-    { "<leader>mc", ":CMakeClean<CR>", desc = "clean" },
-    { "<leader>mi", ":CMakeInstall<CR>", desc = "install" },
-
-    { "<leader>ms", group = "Select" },
-    { "<leader>msb", group = "Build" },
-    { "<leader>msbt", ":CMakeSelectBuildType<CR>", desc = "type" },
-    { "<leader>msbd", ":CMakeSelectBuildDir<CR>", desc = "dir" },
-    { "<leader>msbg", ":CMakeSelectBuildTarget<CR>", desc = "target" },
-    { "<leader>msbp", ":CMakeSelectBuildPreset<CR>", desc = "preset" },
-    { "<leader>msl", ":CMakeSelectLaunchTarget<CR>", desc = "launch target" },
-    { "<leader>msk", ":CMakeSelectKit<CR>", desc = "kit" },
-    { "<leader>msc", ":CMakeSelectConfigurePreset<CR>", desc = "configure preset" },
-    { "<leader>mst", ":CMakeSettings<CR>", desc = "settings" },
-
     { "<leader>wL", desc = "move current window to right" },
     { "<leader>wH", desc = "move current window to left" },
     { "<leader>wJ", desc = "move current window to buttom" },
@@ -77,6 +37,13 @@ if not vim.g.vscode then
     -- others
     { "<leader>n", group = "cancel" },
     { "<leader>nh", ":nohlsearch<CR>", desc = "no highlight search" },
+    {
+      "<leader>ns",
+      function()
+        require("luasnip").unlink_current()
+      end,
+      desc = "unlink current snippet",
+    },
   })
 
   if vim.fn.has("win") then
@@ -96,14 +63,4 @@ if not vim.g.vscode then
       { "<leader>tvz", ":vert rightbelow term zsh<CR>", desc = "open zsh right" },
     })
   end
-
-  wk.add({
-    {
-      "<leader>ns",
-      function()
-        require("luasnip").unlink_current()
-      end,
-      desc = "unlink current snippet",
-    },
-  })
 end
