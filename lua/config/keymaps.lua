@@ -96,4 +96,14 @@ if not vim.g.vscode then
       { "<leader>tvz", ":vert rightbelow term zsh<CR>", desc = "open zsh right" },
     })
   end
+
+  wk.add({
+    {
+      "<leader>ns",
+      function()
+        require("luasnip").unlink_current()
+      end,
+      desc = "unlink current snippet",
+    },
+  })
 end
