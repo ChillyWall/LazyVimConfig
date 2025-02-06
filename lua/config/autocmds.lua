@@ -7,7 +7,7 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cpp", "c", "c++", "python", "java", "markdown", "json", "arduino" },
+  pattern = { "cpp", "c", "python", "java", "markdown", "json", "arduino" },
   group = augroup("format-tabs"),
   callback = function()
     vim.opt_local.tabstop = 4
