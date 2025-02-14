@@ -1,3 +1,7 @@
+if vim.fn.filereadable(vim.uv.cwd() .. "/CMakeLists.txt") ~= 1 then
+  return {}
+end
+
 local wk = require("which-key")
 wk.add({
   { "<leader>m", group = "CMake" },

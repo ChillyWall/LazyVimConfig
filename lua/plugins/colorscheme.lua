@@ -7,7 +7,7 @@ return {
       floats = "transparent",
     },
     on_colors = function(colors)
-      colors.border = colors.blue7
+      colors.border = colors.blue5
     end,
   },
 }

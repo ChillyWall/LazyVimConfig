@@ -9,6 +9,12 @@ g.mapleader = ";"
 g.maplocalleader = ";"
 opt.scrolloff = 10
 
+vim.filetype.add({
+  pattern = {
+    [".*.qrc"] = "xml",
+  },
+})
+
 if g.neovide then
   if vim.fn.has("win32") == 1 then
     opt.guifont = "SauceCodePro Nerd Font:h10"
