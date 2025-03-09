@@ -69,4 +69,11 @@ if not vim.g.vscode then
     { "<leader>tvf", ":vert rightbelow term fish<CR>", desc = "open fish right", mode = "n" },
   })
 else
+  keymap.set("n", "<leader>e", [[<cmd> lua require('vscode').action('workbench.explorer.fileView.focus')<cr>]])
+  keymap.set("n", "<leader>t", [[<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<cr>]])
+  keymap.set(
+    "n",
+    "<leader>cp",
+    [[<cmd>lua require('vscode').action('markdown-preview-enhanced.openPreviewToTheSide')<cr>]]
+  )
 end
