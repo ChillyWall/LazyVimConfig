@@ -16,7 +16,7 @@ return {
         "default",
         {
           "run_after",
-          task_names = { { "shell", cmd = "ln -b -s build/compile_commands.json ./" } },
+          task_names = { { "shell", cmd = "ln -sf build/compile_commands.json ./" } },
         },
       },
     }

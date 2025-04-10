@@ -67,6 +67,44 @@ if not vim.g.vscode then
     { "<leader>tvb", ":vert rightbelow term bash<CR>", desc = "open bash right", mode = "n" },
     { "<leader>tvz", ":vert rightbelow term zsh<CR>", desc = "open zsh right", mode = "n" },
     { "<leader>tvf", ":vert rightbelow term fish<CR>", desc = "open fish right", mode = "n" },
+
+    { "<leader>r", group = "refactor/ros" },
+    { "<leader>ro", group = "ros" },
+    {
+      "<leader>roc",
+      function()
+        require("config.ros").roscd()
+      end,
+      desc = "roscd",
+    },
+    {
+      "<leader>rom",
+      function()
+        require("config.ros").catkin_make()
+      end,
+      desc = "catkin_make",
+    },
+    {
+      "<leader>ron",
+      function()
+        require("config.ros").rosnode()
+      end,
+      desc = "rosnode",
+    },
+    {
+      "<leader>rot",
+      function()
+        require("config.ros").rostopic()
+      end,
+      desc = "rostopic",
+    },
+    {
+      "<leader>ros",
+      function()
+        require("config.ros").rosservice()
+      end,
+      desc = "rosservice",
+    },
   })
 else
   keymap.set("n", "<leader>e", [[<cmd> lua require('vscode').action('workbench.explorer.fileView.focus')<cr>]])
