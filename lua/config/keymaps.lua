@@ -24,6 +24,8 @@ keymap.set("n", "<S-Enter>", "O<Esc>", opts)
 -- use space to add a space before cursor
 keymap.set("n", "<Space>", "i<Space><Esc>l", opts)
 
+keymap.set("n", "<C-Enter", "i<Enter><Esc>O")
+
 keymap.set("n", "<leader>wL", "<C-w>L", opts)
 keymap.set("n", "<leader>wK", "<C-w>K", opts)
 keymap.set("n", "<leader>wJ", "<C-w>J", opts)
@@ -32,6 +34,7 @@ keymap.set("n", "<leader>wH", "<C-w>H", opts)
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", opts)
 
 if not vim.g.vscode then
+  local ros = require("config.ros")
   -- use leader to open terminals
   local wk = require("which-key")
   wk.add({
@@ -73,35 +76,35 @@ if not vim.g.vscode then
     {
       "<leader>roc",
       function()
-        require("config.ros").roscd()
+        ros.roscd()
       end,
       desc = "roscd",
     },
     {
       "<leader>rom",
       function()
-        require("config.ros").catkin_make()
+        ros.catkin_make()
       end,
       desc = "catkin_make",
     },
     {
       "<leader>ron",
       function()
-        require("config.ros").rosnode()
+        ros.rosnode()
       end,
       desc = "rosnode",
     },
     {
       "<leader>rot",
       function()
-        require("config.ros").rostopic()
+        ros.rostopic()
       end,
       desc = "rostopic",
     },
     {
       "<leader>ros",
       function()
-        require("config.ros").rosservice()
+        ros.rosservice()
       end,
       desc = "rosservice",
     },

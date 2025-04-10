@@ -1,17 +1,16 @@
 return {
   name = "catkin make",
   builder = function()
-    local cwd = vim.fn.getcwd()
     return {
       cmd = {
         "catkin_make",
       },
       args = {
-        "-DCMAKE_COMPILE_COMMANDS=ON",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
       },
       cwd = vim.fn.getcwd(),
       components = {
-        { "on_output_quickfix", set_diagnostics = true },
+        { "on_output_quickfix", close = true, open = true, set_diagnostics = true },
         "on_result_diagnostics",
         "default",
         {

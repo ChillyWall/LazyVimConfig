@@ -183,13 +183,83 @@ function M.rosservice()
   })
 end
 
+local function get_parent_dir(path)
+  local last_slash = path:find("/[^/]*$")
+  if last_slash then
+    return path:sub(1, last_slash - 1)
+  else
+    return nil
+  end
+end
+
 function M.catkin_make()
-  if vim.fn.filereadable("./.catkin_workspace") == 1 then
+  if vim.fn.filereadable(vim.fn.getcwd(0, 0) .. "/.catkin_workspace") == 1 then
     local overseer = require("overseer")
     overseer.run_template({ name = "catkin make" })
   else
     vim.notify("The cwd is not a catkin workspace", vim.log.levels.ERROR)
   end
 end
+
+function M.catkin_create_pkg(args)
+  if vim.fn.filereadable(vim.fn.getcwd(0, 0) .. "/.catkin_workspace") == 0 then
+    vim.notify("The cwd is not a catkin workspace", vim.log.levels.ERROR)
+  end
+
+  local cmd = "cd src && catkin_create_pkg " .. args
+
+  local handle = io.popen(cmd)
+  if handle then
+    vim.notify(handle:read("*a"), vim.log.levels.INFO)
+  else
+    vim.notify("Failed to execute catkin_create_pkg", vim.log.levels.ERROR)
+  end
+end
+
+vim.api.nvim_create_user_command("CatkinMake", function()
+  M.catkin_make()
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("RosCd", function(opts)
+  vim.fn.chdir(loc_pkg(opts.args))
+end, {
+  nargs = 1,
+  complete = function(arg_lead, cmdline, cursor_pos)
+    local items = {}
+    local handle = io.popen("rospack list-names")
+    if not handle then
+      vim.notify("Failed to execute rospack list-names")
+      return items
+    end
+    for line in handle:lines() do
+      if line:find("^" .. arg_lead) then
+        table.insert(items, line)
+      end
+    end
+    return items
+  end,
+})
+
+vim.api.nvim_create_user_command("CatkinCreatePkg", function(opts)
+  M.catkin_create_pkg(opts.args)
+end, {
+  nargs = "+",
+  complete = function(arg_lead, cmdline, cursor_pos)
+    local items = {}
+    if cmdline:match("^CatkinCreatePkg %S+ .*") then
+      local handle = io.popen("rospack list-names")
+      if not handle then
+        vim.notify("Failed to execute rospack list-names")
+        return items
+      end
+      for line in handle:lines() do
+        if line:find("^" .. arg_lead) then
+          table.insert(items, line)
+        end
+      end
+    end
+    return items
+  end,
+})
 
 return M
