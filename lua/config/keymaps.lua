@@ -76,4 +76,5 @@ else
     "<leader>cp",
     [[<cmd>lua require('vscode').action('markdown-preview-enhanced.openPreviewToTheSide')<cr>]]
   )
+  keymap.set("n", "<leader>cf", [[<cmd>lua require('vscode').action('editor.action.formatDocument')<cr>]])
 end
