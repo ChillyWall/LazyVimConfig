@@ -52,12 +52,6 @@ local msg_info = function(msg)
   return info
 end
 
----@param item snacks.picker.Item
-local change_directory = function(item)
-  local dir = item.file
-  vim.fn.chdir(dir)
-end
-
 function M.roscd()
   Snacks.picker.pick({
     source = "roscd",
@@ -89,7 +83,7 @@ function M.roscd()
     end,
     confirm = function(picker, item)
       picker:close()
-      change_directory(item)
+      vim.fn.chdir(item.file)
     end,
   })
 end
@@ -124,7 +118,7 @@ function M.rosnode()
         { item.text, "SnacksPickerLabel" },
       }
     end,
-    confirm = function(picker, item)
+    confirm = function(picker, _)
       picker:close()
     end,
   })
@@ -160,7 +154,7 @@ function M.rostopic()
         { item.text, "SnacksPickerLabel" },
       }
     end,
-    confirm = function(picker, item)
+    confirm = function(picker, _)
       picker:close()
     end,
   })
@@ -196,7 +190,7 @@ function M.rosservice()
         { item.text, "SnacksPickerLabel" },
       }
     end,
-    confirm = function(picker, item)
+    confirm = function(picker, _)
       picker:close()
     end,
   })
@@ -232,7 +226,7 @@ function M.rosmsg()
         { item.text, "SnacksPickerLabel" },
       }
     end,
-    confirm = function(picker, item)
+    confirm = function(picker, _)
       picker:close()
     end,
   })
@@ -280,7 +274,7 @@ vim.api.nvim_create_user_command("CatkinMake", function()
   M.catkin_make()
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("RosCd", function(opts)
+vim.api.nvim_create_user_command("RosCd", function()
   M.roscd()
 end, { nargs = 0 })
 
@@ -288,7 +282,7 @@ vim.api.nvim_create_user_command("CatkinCreatePkg", function(opts)
   M.catkin_create_pkg(opts.args)
 end, {
   nargs = "+",
-  complete = function(arg_lead, cmdline, cursor_pos)
+  complete = function(arg_lead, cmdline, _)
     local items = {}
     if cmdline:match("^CatkinCreatePkg %S+ .*") then
       local handle = io.popen("rospack list-names")
