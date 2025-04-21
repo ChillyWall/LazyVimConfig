@@ -13,8 +13,12 @@ local keymap = vim.keymap
 keymap.set("i", "jj", "<Esc>", opts)
 
 -- use Ctrl + h/l to move cursor to left or right in insert mode
+keymap.set("i", "<C-b>", "<Left>", opts)
+keymap.set("i", "<C-f>", "<Right>", opts)
 keymap.set("i", "<C-h>", "<Left>", opts)
 keymap.set("i", "<C-l>", "<Right>", opts)
+keymap.set("i", "<C-n>", "<Down>", opts)
+keymap.set("i", "<C-p>", "<Up>", opts)
 
 -- use enter to add a line and move to it in normal mode
 keymap.set("n", "<CR>", "o<Esc>", opts)
@@ -54,6 +58,8 @@ if not vim.g.vscode then
       end,
       desc = "unlink current snippet",
     },
+
+    { "<leader>o", group = "open/overseer" },
 
     -- shells
     { "<leader>tc", ":rightbelow term cmd<CR>", desc = "open cmd below", mode = "n" },

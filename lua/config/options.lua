@@ -6,7 +6,7 @@ local opt = vim.opt
 local g = vim.g
 
 g.mapleader = ";"
-g.maplocalleader = ";"
+g.maplocalleader = "\\"
 opt.scrolloff = 10
 
 vim.filetype.add({
