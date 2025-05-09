@@ -64,15 +64,15 @@ if not vim.g.vscode then
     -- shells
     { "<leader>tc", ":rightbelow term cmd<CR>", desc = "open cmd below", mode = "n" },
     { "<leader>tp", ":rightbelow term pwsh<CR>", desc = "open powershell below" },
-    { "<leader>tvc", ":vert rightbelow term cmd<CR>", desc = "open cmd right" },
-    { "<leader>tvp", ":vert rightbelow term pwsh<CR>", desc = "open powershell right" },
+    { "<leader>tC", ":vert rightbelow term cmd<CR>", desc = "open cmd right" },
+    { "<leader>tP", ":vert rightbelow term pwsh<CR>", desc = "open powershell right" },
 
     { "<leader>tb", ":rightbelow term bash<CR>", desc = "open bash below", mode = "n" },
     { "<leader>tz", ":rightbelow term zsh<CR>", desc = "open zsh below", mode = "n" },
     { "<leader>tf", ":rightbelow term fish<CR>", desc = "open fish below", mode = "n" },
-    { "<leader>tvb", ":vert rightbelow term bash<CR>", desc = "open bash right", mode = "n" },
-    { "<leader>tvz", ":vert rightbelow term zsh<CR>", desc = "open zsh right", mode = "n" },
-    { "<leader>tvf", ":vert rightbelow term fish<CR>", desc = "open fish right", mode = "n" },
+    { "<leader>tB", ":vert rightbelow term bash<CR>", desc = "open bash right", mode = "n" },
+    { "<leader>tZ", ":vert rightbelow term zsh<CR>", desc = "open zsh right", mode = "n" },
+    { "<leader>tF", ":vert rightbelow term fish<CR>", desc = "open fish right", mode = "n" },
   })
 else
   keymap.set("n", "<leader>e", [[<cmd> lua require('vscode').action('workbench.explorer.fileView.focus')<cr>]])
