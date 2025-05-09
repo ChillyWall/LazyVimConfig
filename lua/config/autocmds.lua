@@ -15,3 +15,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4
   end,
 })
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.cmd("silent! :!fcitx5-remote -c")
+  end,
+})
