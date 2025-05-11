@@ -3,18 +3,19 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     local wk = require("which-key")
     wk.add({
-      { "<localleader>d", ":ObsidianDailies<CR>", desc = "Obsidian dailies" },
-      { "<localleader>t", ":ObsidianTags<CR>", desc = "Obsidian tags" },
-      { "<localleader>c", ":ObsidianTOC<CR>", desc = "Obsidian TOC" },
-      { "<localleader>o", ":ObsidianOpen", desc = "Obsidian open" },
-      { "<localleader>s", ":ObsidianSearch<CR>", desc = "Obsidian search" },
-      { "<localleader>n", ":ObsidianNew<CR>", desc = "Obsidian new note" },
-      { "<localleader>N", ":ObsidianNewFromTemplate", desc = "Obsidian new note from template" },
-      { "<localleader>r", ":ObsidianRename<CR>", desc = "Obsidian rename" },
-      { "<localleader>w", ":ObsidianWorkspace<CR>", desc = "Obsidian workspace" },
-      { "<localleader>l", ":ObsidianLink", desc = "Obsidian link", mode = { "n", "v" } },
-      { "<localleader>L", ":ObsidianLinks<CR>", desc = "Obsidian links" },
-      { "<localleader>q", ":ObsidianQuickSwitch<CR>", desc = "Obsidian quick switch" },
+      { "<localleader>o", group = "Obsidian" },
+      { "<localleader>od", ":ObsidianDailies<CR>", desc = "Obsidian dailies" },
+      { "<localleader>ot", ":ObsidianTags<CR>", desc = "Obsidian tags" },
+      { "<localleader>oc", ":ObsidianTOC<CR>", desc = "Obsidian TOC" },
+      { "<localleader>oo", ":ObsidianOpen", desc = "Obsidian open" },
+      { "<localleader>os", ":ObsidianSearch<CR>", desc = "Obsidian search" },
+      { "<localleader>on", ":ObsidianNew<CR>", desc = "Obsidian new note" },
+      { "<localleader>oN", ":ObsidianNewFromTemplate", desc = "Obsidian new note from template" },
+      { "<localleader>or", ":ObsidianRename<CR>", desc = "Obsidian rename" },
+      { "<localleader>ow", ":ObsidianWorkspace<CR>", desc = "Obsidian workspace" },
+      { "<localleader>ol", ":ObsidianLink", desc = "Obsidian link", mode = { "n", "v" } },
+      { "<localleader>oL", ":ObsidianLinks<CR>", desc = "Obsidian links" },
+      { "<localleader>oq", ":ObsidianQuickSwitch<CR>", desc = "Obsidian quick switch" },
     })
   end,
 })
@@ -128,6 +129,10 @@ return {
         -- Insert a tag at the current location.
         insert_tag = "<C-l>",
       },
+    },
+
+    ui = {
+      enable = false,
     },
   },
 }
