@@ -10,7 +10,7 @@ return {
           "--clang-tidy",
           "--header-insertion=iwyu",
           "--completion-style=detailed",
-          "--function-arg-placeholders",
+          "--function-arg-placeholders=true",
           "--fallback-style=llvm",
           "--query-driver=/usr/bin/g++",
         },

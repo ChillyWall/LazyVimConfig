@@ -5,8 +5,6 @@ vim.api.nvim_create_autocmd("DirChanged", {
       local wk = require("which-key")
       wk.add({
         { "<localleader>m", group = "CMake" },
-        { "<localleader>ms", group = "Select" },
-        { "<localleader>msb", group = "Build" },
         { "<localleader>mg", ":CMakeGenerate<CR>", desc = "generate" },
         { "<localleader>mb", ":CMakeBuild<CR>", desc = "build" },
         { "<localleader>md", ":CMakeDebug<CR>", desc = "debug" },
@@ -15,14 +13,17 @@ vim.api.nvim_create_autocmd("DirChanged", {
         { "<localleader>mc", ":CMakeClean<CR>", desc = "clean" },
         { "<localleader>mi", ":CMakeInstall<CR>", desc = "install" },
 
+        { "<localleader>ms", group = "Select" },
+        { "<localleader>msl", ":CMakeSelectLaunchTarget<CR>", desc = "launch target" },
+        { "<localleader>msk", ":CMakeSelectKit<CR>", desc = "kit" },
+        { "<localleader>msp", ":CMakeSelectConfigurePreset<CR>", desc = "preset" },
+        { "<localleader>mst", ":CMakeSettings<CR>", desc = "settings" },
+
+        { "<localleader>msb", group = "Build" },
         { "<localleader>msbt", ":CMakeSelectBuildType<CR>", desc = "type" },
         { "<localleader>msbd", ":CMakeSelectBuildDir<CR>", desc = "dir" },
         { "<localleader>msbg", ":CMakeSelectBuildTarget<CR>", desc = "target" },
         { "<localleader>msbp", ":CMakeSelectBuildPreset<CR>", desc = "preset" },
-        { "<localleader>msl", ":CMakeSelectLaunchTarget<CR>", desc = "launch target" },
-        { "<localleader>msk", ":CMakeSelectKit<CR>", desc = "kit" },
-        { "<localleader>msc", ":CMakeSelectConfigurePreset<CR>", desc = "configure preset" },
-        { "<localleader>mst", ":CMakeSettings<CR>", desc = "settings" },
       })
     end
   end,
