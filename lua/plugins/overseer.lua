@@ -7,6 +7,7 @@ return {
       "user.cpp_build",
       "user.link_compile_commands",
       "user.pandoc_latex",
+      "user.pandoc_pdf",
     },
   },
 }

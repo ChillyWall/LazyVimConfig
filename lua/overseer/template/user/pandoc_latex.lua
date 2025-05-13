@@ -1,12 +1,12 @@
 return {
-  name = "convert to latex file with pandoc",
+  name = "convert markdown to latex with pandoc",
   builder = function()
     local file = vim.fn.expand("%:p")
     local output_file = vim.fn.expand("%:r") .. ".tex"
     return {
       cmd = { "pandoc" },
-      args = { file, "-t", "latex", "-s", "-o", output_file },
-      components = { { "on_output_quickfix", open = true }, "default" },
+      args = { file, "--to=latex", "--template=eisvogel.latex", "--standalone", "-o", output_file },
+      components = { { "on_output_quickfix", open = false }, "default" },
     }
   end,
   condition = {
