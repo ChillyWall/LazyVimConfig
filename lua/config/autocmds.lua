@@ -21,3 +21,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     vim.cmd("silent! :!fcitx5-remote -c")
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown", "tex" },
+  callback = function()
+    vim.b.autoformat = false
+    vim.opt_local.spell = false
+  end,
+})
