@@ -1,6 +1,6 @@
-vim.api.nvim_create_autocmd("DirChanged", {
+vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
   callback = function()
-    local cwd = vim.uv.cwd()
+    local cwd = vim.fn.getcwd()
     if vim.fn.filereadable(cwd .. "/CMakeLists.txt") == 1 then
       local wk = require("which-key")
       wk.add({
