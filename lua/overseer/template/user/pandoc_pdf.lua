@@ -14,7 +14,7 @@ return {
         "-o",
         output_file,
       },
-      components = { { "on_output_quickfix", open = false }, "default" },
+      components = { { "on_output_quickfix", open = true, close = true }, "default" },
     }
   end,
   condition = {
