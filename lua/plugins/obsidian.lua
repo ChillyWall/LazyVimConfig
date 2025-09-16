@@ -4,18 +4,21 @@ vim.api.nvim_create_autocmd("FileType", {
     local wk = require("which-key")
     wk.add({
       { "<localleader>o", group = "Obsidian" },
-      { "<localleader>od", ":ObsidianDailies<CR>", desc = "Obsidian dailies" },
-      { "<localleader>ot", ":ObsidianTags<CR>", desc = "Obsidian tags" },
-      { "<localleader>oc", ":ObsidianTOC<CR>", desc = "Obsidian TOC" },
-      { "<localleader>oo", ":ObsidianOpen", desc = "Obsidian open" },
-      { "<localleader>os", ":ObsidianSearch<CR>", desc = "Obsidian search" },
-      { "<localleader>on", ":ObsidianNew<CR>", desc = "Obsidian new note" },
-      { "<localleader>oN", ":ObsidianNewFromTemplate", desc = "Obsidian new note from template" },
-      { "<localleader>or", ":ObsidianRename<CR>", desc = "Obsidian rename" },
-      { "<localleader>ow", ":ObsidianWorkspace<CR>", desc = "Obsidian workspace" },
-      { "<localleader>ol", ":ObsidianLink", desc = "Obsidian link", mode = { "n", "v" } },
-      { "<localleader>oL", ":ObsidianLinks<CR>", desc = "Obsidian links" },
-      { "<localleader>oq", ":ObsidianQuickSwitch<CR>", desc = "Obsidian quick switch" },
+      { "<localleader>od", ":Obsidian dailies<CR>", desc = "Obsidian dailies" },
+      { "<localleader>oe", ":Obsidian extract_note<CR>", desc = "Obsidian extract into new note" },
+      { "<localleader>ot", ":Obsidian tags<CR>", desc = "Obsidian tags" },
+      { "<localleader>oT", ":Obsidian template<CR>", desc = "Obsidian insert template" },
+      { "<localleader>oc", ":Obsidian toc<CR>", desc = "Obsidian TOC" },
+      { "<localleader>oo", ":Obsidian open", desc = "Obsidian open" },
+      { "<localleader>os", ":Obsidian search<CR>", desc = "Obsidian search" },
+      { "<localleader>on", ":Obsidian new<CR>", desc = "Obsidian new note" },
+      { "<localleader>oN", ":Obsidian new_from_template<CR>", desc = "Obsidian new note from template" },
+      { "<localleader>or", ":Obsidian rename<CR>", desc = "Obsidian rename" },
+      { "<localleader>ow", ":Obsidian workspace<CR>", desc = "Obsidian workspace" },
+      { "<localleader>ol", ":Obsidian link", desc = "Obsidian link", mode = { "n", "v" } },
+      { "<localleader>oL", ":Obsidian links<CR>", desc = "Obsidian links" },
+      { "<localleader>oq", ":Obsidian quick_switch<CR>", desc = "Obsidian quick switch" },
+      { "<localleader>op", ":Obsidian paste_img<CR>", desc = "Obsidian paste image" },
     })
   end,
 })
@@ -93,24 +96,7 @@ return {
       substitutions = {},
     },
 
-    -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
-    -- way then set 'mappings = {}'.
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Smart action depending on context: follow link, show notes with tag, or toggle checkbox.
-      ["<C-CR>"] = {
-        action = function()
-          return require("obsidian").util.smart_action()
-        end,
-        opts = { buffer = true, expr = true },
-      },
-    },
+    disable_frontmatter = true,
 
     picker = {
       -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
