@@ -8,6 +8,7 @@ return {
       ["arduino"] = { "clang_format" },
       ["tex"] = { "latexindent" },
       ["cmake"] = { "gersemi" },
+      ["zsh"] = { "beautysh" },
     },
     formatters = {
       clang_format = {

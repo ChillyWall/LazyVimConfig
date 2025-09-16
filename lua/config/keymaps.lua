@@ -21,7 +21,7 @@ keymap.set("i", "<C-n>", "<Down>", opts)
 keymap.set("i", "<C-p>", "<Up>", opts)
 
 -- use enter to add a line and move to it in normal mode
-keymap.set("n", "<CR>", "o<Esc>", opts)
+keymap.set("n", "<C-CR>", "o<Esc>", opts)
 -- use <S-Enter> to add a line before and move to it in normal mode
 keymap.set("n", "<S-Enter>", "O<Esc>", opts)
 
@@ -75,7 +75,7 @@ if not vim.g.vscode then
     { "<leader>tF", ":vert rightbelow term fish<CR>", desc = "open fish right", mode = "n" },
   })
 else
-  keymap.set("n", "<leader>e", [[<cmd> lua require('vscode').action('workbench.explorer.fileView.focus')<cr>]])
+  keymap.set("n", "<leader>e", [[<cmd>lua require('vscode').action('workbench.explorer.fileView.focus')<cr>]])
   keymap.set("n", "<leader>t", [[<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<cr>]])
   keymap.set(
     "n",
@@ -83,4 +83,6 @@ else
     [[<cmd>lua require('vscode').action('markdown-preview-enhanced.openPreviewToTheSide')<cr>]]
   )
   keymap.set("n", "<leader>cf", [[<cmd>lua require('vscode').action('editor.action.formatDocument')<cr>]])
+  keymap.set("n", "<leader>wv", [[<cmd>lua require('vscode').action('workbench.action.splitEditor')<cr>]])
+  keymap.set("n", "<leader>ws", [[<cmd>lua require('vscode').action('workbench.action.splitEditorDown')<cr>]])
 end

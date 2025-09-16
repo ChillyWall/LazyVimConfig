@@ -12,6 +12,7 @@ opt.scrolloff = 10
 vim.filetype.add({
   pattern = {
     [".*.qrc"] = "xml",
+    [".*.ixx"] = "cpp",
   },
 })
 
