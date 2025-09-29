@@ -18,9 +18,9 @@ vim.filetype.add({
 
 if g.neovide then
   if vim.fn.has("win32") == 1 then
-    opt.guifont = "SauceCodePro Nerd Font:h10"
+    opt.guifont = "FiraCode Nerd Font:h10"
   else
-    opt.guifont = "SauceCodePro NF:h12"
+    opt.guifont = "FiraCode NF:h12"
   end
   g.neovide_transparency = 0.85
 end

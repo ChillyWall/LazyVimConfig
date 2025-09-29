@@ -9,6 +9,7 @@ return {
       ["tex"] = { "latexindent" },
       ["cmake"] = { "gersemi" },
       ["zsh"] = { "beautysh" },
+      ["json"] = { "biome" },
     },
     formatters = {
       clang_format = {

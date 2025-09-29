@@ -18,7 +18,7 @@ return {
         "-L",
         "table-rules.lua",
         "--number-sections",
-        "--extract-media=diagram",
+        "--extract-media=.",
         "-o",
         output_file,
       },
