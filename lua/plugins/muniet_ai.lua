@@ -13,6 +13,17 @@ local kind_icons = {
   Deepseek = "",
 }
 
+local local_provider = {
+  api_key = "TERM",
+  name = "Ollama",
+  end_point = "https://localhost:11343/v1/completions",
+  model = "qwen2.5-coder:7b",
+  optional = {
+    max_tokens = 56,
+    top_p = 0.9,
+  },
+}
+
 return {
   {
     "milanglacier/minuet-ai.nvim",
@@ -26,20 +37,7 @@ return {
         -- power. Once you have a reliable estimate of your local computing power,
         -- you should adjust the context window to a larger value.
         context_window = 512,
-        provider_options = {
-          openai_fim_compatible = {
-            -- For Windows users, TERM may not be present in environment variables.
-            -- Consider using APPDATA instead.
-            api_key = "TERM",
-            name = "Ollama",
-            end_point = "http://localhost:11434/v1/completions",
-            model = "qwen2.5-coder:7b",
-            optional = {
-              max_tokens = 56,
-              top_p = 0.9,
-            },
-          },
-        },
+        provider_options = { openai_fim_compatible = local_provider },
       })
     end,
   },
