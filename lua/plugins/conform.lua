@@ -10,6 +10,7 @@ return {
       ["cmake"] = { "gersemi" },
       ["zsh"] = { "beautysh" },
       ["json"] = { "biome" },
+      ["xml"] = { "xmlformatter" },
     },
     formatters = {
       clang_format = {
@@ -17,6 +18,9 @@ return {
           "--assume-filename",
           "--style=file",
         },
+      },
+      ["markdownlint-cli2"] = {
+        args = { "--config", "~/.markdownlint-cli2.yaml", "--fix", "$FILENAME" },
       },
     },
   },
