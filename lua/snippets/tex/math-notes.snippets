@@ -1,0 +1,64 @@
+priority 2000
+snippet thm theorem environment
+    \\begin{theorem}[${1:tag}]\\phantomsection\\label{def:${2:label}}
+      $3
+    \\end{theorem}
+
+snippet prop proposition environment
+    \\begin{proposition}[${1:tag}]\\phantomsection\\label{prop:${2:label}}
+      $3
+    \\end{proposition}
+
+snippet def proposition environment
+    \\begin{definition}[${1:tag}]\\phantomsection\\label{def:${2:label}}
+      $3
+    \\end{definition}
+
+snippet lem proposition environment
+    \\begin{lemma}[${1:tag}]\\phantomsection\\label{lem:${2:label}}
+      $3
+    \\end{lemma}
+
+snippet cor proposition environment
+    \\begin{corollary}[${1:tag}]\\phantomsection\\label{cor:${2:label}}
+      $3
+    \\end{corollary}
+
+snippet note note environment
+    \\begin{note*}
+      $1
+    \\end{note*}
+
+snippet remark remark environment
+    \\begin{remark*}
+      $1
+    \\end{remark*}
+
+snippet proof proof environment
+    \\begin{proof}
+      $1
+    \\end{proof}
+
+snippet math math inline
+     \\( $1 \\)
+
+snippet equation equation environment
+    \\begin{equation}\phantomsection\\label{eq:${1:label}}
+      $2
+    \\end{equation}
+
+snippet algorithm algorithm environment
+    \\begin{algorithm}[H]\\phantomsection\\label{${1:label}}
+      \\KwIn{${2:input}}
+      \\KwOut{${3:output}}
+      \\SetAlgoLined
+      \\SetNoFillComment
+      \\vspace{3mm}
+      $4
+    \\end{algorithm}
+
+snippet enum enumerate environment
+    \\begin{enumerate}
+      \def\labelenumi{\arabic{enumi}.}
+      $1
+    \\end{enumerate}
