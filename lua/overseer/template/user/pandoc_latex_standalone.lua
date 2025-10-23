@@ -1,5 +1,5 @@
 return {
-  name = "convert markdown to latex with pandoc",
+  name = "convert markdown to latex standalone with pandoc",
   builder = function()
     local path = vim.fn.expand("%:p:h")
     local file = vim.fn.expand("%:t")
@@ -9,6 +9,8 @@ return {
       args = {
         file,
         "--to=latex",
+        "--template=eisvogel.latex",
+        "--standalone",
         "-F",
         "pandoc-crossref",
         "-L",
@@ -16,7 +18,6 @@ return {
         "-L",
         "table-rules.lua",
         "--number-sections",
-        "--standalone=false",
         "--extract-media=.",
         "-o",
         output_file,

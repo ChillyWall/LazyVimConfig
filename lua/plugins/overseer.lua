@@ -7,7 +7,9 @@ return {
       "user.cpp_build",
       "user.link_compile_commands",
       "user.pandoc_latex",
+      "user.pandoc_latex_standalone",
       "user.pandoc_pdf",
+      "user.draw_mermaid",
     },
   },
 }
