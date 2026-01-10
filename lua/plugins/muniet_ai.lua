@@ -24,7 +24,7 @@ local local_provider = {
   },
 }
 
-return {
+local M = {
   {
     "milanglacier/minuet-ai.nvim",
     config = function()
@@ -71,3 +71,6 @@ return {
     },
   },
 }
+
+-- disable this plugin for now
+return {}
