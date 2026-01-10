@@ -17,7 +17,7 @@ return {
         "table-rules.lua",
         "--number-sections",
         "--standalone=false",
-        "--extract-media=.",
+        "--extract-media=./img",
         "-o",
         output_file,
       },
