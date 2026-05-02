@@ -1,15 +1,11 @@
-vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
 return {
   {
     "olimorris/codecompanion.nvim",
     opts = {
       strategies = {
         chat = {
-          adapter = "ollama",
-          model = "qwen2.5-coder:7b",
+          adapter = "opencode",
+          model = "Github Copilot/GPT-5.2-Codex",
         },
         inline = {
           adapter = "ollama",
@@ -24,19 +20,25 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    config = function(_, opts)
+      require("codecompanion").setup(opts)
+      vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+      vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+      vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "codecompanion" },
   },
   {
-    "nvim-mini/mini.diff",
-    config = function()
-      local diff = require("mini.diff")
-      diff.setup({
-        -- Disabled by default
-        source = diff.gen_source.none(),
-      })
-    end,
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        },
+      },
+    },
   },
 }

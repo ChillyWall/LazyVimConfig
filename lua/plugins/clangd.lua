@@ -5,7 +5,7 @@ return {
       -- Ensure mason installs the server
       clangd = {
         cmd = {
-          "clangd",
+          vim.fn.exepath("clangd-22") or "clangd-22",
           "--background-index",
           "--clang-tidy",
           "--header-insertion=iwyu",
